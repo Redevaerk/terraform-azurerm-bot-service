@@ -49,6 +49,27 @@ resource "azurerm_bot_channel_directline" "this" {
   ]
 }
 
+resource "azurerm_bot_channel_web_chat" "this" {
+  bot_name            = var.name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  dynamic "site" {
+    for_each = try(var.web_chat_sites[*], [])
+    content {
+      name                        = site.value.name
+      user_upload_enabled         = lookup(site.value, "user_upload_enabled", true)
+      endpoint_parameters_enabled = lookup(site.value, "endpoint_parameters_enabled", false)
+      storage_enabled             = lookup(site.value, "storage_enabled", true)
+
+    }
+  }
+
+  depends_on = [
+    azurerm_bot_service_azure_bot.this
+  ]
+}
+
 
 ###########
 # Microsoft Application

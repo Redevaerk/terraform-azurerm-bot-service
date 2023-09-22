@@ -17,7 +17,18 @@ module "bot" {
       name                            = "with-auth"
       enabled                         = true
       enhanced_authentication_enabled = true
+      user_upload_enabled             = false
       trusted_origins                 = ["https://www.example.com"]
+    }
+  ]
+  web_chat_sites = [{
+    name    = "default"
+    enabled = true
+    },
+    {
+      name                        = "second"
+      endpoint_parameters_enabled = false
+      user_upload_enabled         = false
     }
   ]
 }

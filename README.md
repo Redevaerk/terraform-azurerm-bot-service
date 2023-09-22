@@ -56,6 +56,7 @@ module "app" {
 | Name | Type |
 |------|------|
 | [azurerm_bot_channel_directline.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bot_channel_directline) | resource |
+| [azurerm_bot_channel_web_chat.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bot_channel_web_chat) | resource |
 | [azurerm_bot_service_azure_bot.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bot_service_azure_bot) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 
@@ -77,6 +78,7 @@ module "app" {
 | <a name="input_sku"></a> [sku](#input\_sku) | The SKU of the Azure Bot Service. Accepted values are F0 or S1. Changing this forces a new resource to be created. | `string` | `"F0"` | no |
 | <a name="input_streaming_endpoint_enabled"></a> [streaming\_endpoint\_enabled](#input\_streaming\_endpoint\_enabled) | Whether the Azure Bot Service Streaming Endpoint should be enabled. | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags which should be assigned to this Azure Bot Service. | `map(string)` | `{}` | no |
+| <a name="input_web_chat_sites"></a> [web\_chat\_sites](#input\_web\_chat\_sites) | A Web Chat site represents a client application that you want to connect to your bot. | <pre>list(object({<br>    name                        = string<br>    user_upload_enabled         = optional(bool)<br>    endpoint_parameters_enabled = optional(bool)<br>    storage_enabled             = optional(bool)<br>  }))</pre> | <pre>[<br>  {<br>    "endpoint_parameters_enabled": false,<br>    "name": "default",<br>    "storage_enabled": false,<br>    "user_upload_enabled": true<br>  }<br>]</pre> | no |
 
 ## Outputs
 
@@ -88,6 +90,7 @@ module "app" {
 | <a name="output_microsoft_app_password"></a> [microsoft\_app\_password](#output\_microsoft\_app\_password) | The Microsoft Application Password. |
 | <a name="output_microsoft_app_type"></a> [microsoft\_app\_type](#output\_microsoft\_app\_type) | The Microsoft App Type for this Azure Bot Service. |
 | <a name="output_microsoft_tenant_id"></a> [microsoft\_tenant\_id](#output\_microsoft\_tenant\_id) | The Tenant ID of the Microsoft App for this Azure Bot Service. |
+| <a name="output_web_chat_channel_id"></a> [web\_chat\_channel\_id](#output\_web\_chat\_channel\_id) | The Web Chat Channel ID. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## License

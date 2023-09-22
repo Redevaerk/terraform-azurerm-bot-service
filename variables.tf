@@ -119,3 +119,19 @@ variable "direct_line_sites" {
     trusted_origins                 = []
   }]
 }
+
+variable "web_chat_sites" {
+  description = "A Web Chat site represents a client application that you want to connect to your bot."
+  type = list(object({
+    name                        = string
+    user_upload_enabled         = optional(bool)
+    endpoint_parameters_enabled = optional(bool)
+    storage_enabled             = optional(bool)
+  }))
+  default = [{
+    name                        = "default"
+    user_upload_enabled         = true
+    endpoint_parameters_enabled = false
+    storage_enabled             = false
+  }]
+}

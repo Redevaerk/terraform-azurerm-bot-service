@@ -20,7 +20,7 @@ output "microsoft_app_password" {
 }
 
 ###########
-# Channel - Direct Line
+# Channels
 ###########
 output "direct_line_channel_id" {
   description = "The Bot Direct Line Channel ID."
@@ -31,4 +31,9 @@ output "direct_line_sites" {
   description = "The Direct Line Channel Sites."
   value       = azurerm_bot_channel_directline.this.site
   sensitive   = true
+}
+
+output "web_chat_channel_id" {
+  description = "The Web Chat Channel ID."
+  value       = azurerm_bot_channel_web_chat.this.id
 }

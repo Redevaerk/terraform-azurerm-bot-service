@@ -8,3 +8,8 @@ output "direct_line_sites" {
   value       = module.bot.direct_line_sites
   sensitive   = true
 }
+
+output "web_chat_channel_id" {
+  description = "The Bot Web Chat channel ID."
+  value       = module.bot.web_chat_channel_id
+}
