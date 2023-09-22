@@ -9,9 +9,10 @@ module "bot" {
   endpoint            = var.endpoint
   create_app          = true
   microsoft_app_type  = "SingleTenant"
-  direct_line_sites = [{
-    name    = "default"
-    enabled = true
+  direct_line_sites = [
+    {
+      name    = "default"
+      enabled = true
     },
     {
       name                            = "with-auth"
@@ -21,9 +22,9 @@ module "bot" {
       trusted_origins                 = ["https://www.example.com"]
     }
   ]
-  web_chat_sites = [{
-    name    = "default"
-    enabled = true
+  web_chat_sites = [
+    {
+      name = "default"
     },
     {
       name                        = "second"

@@ -24,16 +24,16 @@ output "microsoft_app_password" {
 ###########
 output "direct_line_channel_id" {
   description = "The Bot Direct Line Channel ID."
-  value       = azurerm_bot_channel_directline.this.id
+  value       = var.create_bot ? azurerm_bot_channel_directline.this[0].id : null
 }
 
 output "direct_line_sites" {
   description = "The Direct Line Channel Sites."
-  value       = azurerm_bot_channel_directline.this.site
+  value       = var.create_bot ? azurerm_bot_channel_directline.this[0].site : null
   sensitive   = true
 }
 
 output "web_chat_channel_id" {
   description = "The Web Chat Channel ID."
-  value       = azurerm_bot_channel_web_chat.this.id
+  value       = var.create_bot ? azurerm_bot_channel_web_chat.this[0].id : null
 }

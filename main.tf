@@ -26,6 +26,7 @@ resource "azurerm_bot_service_azure_bot" "this" {
 # Channels
 ###########
 resource "azurerm_bot_channel_directline" "this" {
+  count               = var.create_bot ? 1 : 0
   bot_name            = var.name
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -51,6 +52,7 @@ resource "azurerm_bot_channel_directline" "this" {
 }
 
 resource "azurerm_bot_channel_web_chat" "this" {
+  count               = var.create_bot ? 1 : 0
   bot_name            = var.name
   location            = var.location
   resource_group_name = var.resource_group_name
