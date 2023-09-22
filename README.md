@@ -64,6 +64,8 @@ module "app" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_app_insights_application_id"></a> [app\_insights\_application\_id](#input\_app\_insights\_application\_id) | The resource ID of the Application Insights instance to associate with this Azure Bot Service. | `string` | `null` | no |
+| <a name="input_app_insights_key"></a> [app\_insights\_key](#input\_app\_insights\_key) | The Application Insights API Key to associate with this Azure Bot Service. | `string` | `null` | no |
 | <a name="input_attach_default_path_to_endpoint"></a> [attach\_default\_path\_to\_endpoint](#input\_attach\_default\_path\_to\_endpoint) | If true, the path /api/messages will be attached to the endpoint | `bool` | `true` | no |
 | <a name="input_create_app"></a> [create\_app](#input\_create\_app) | Create a new Microsoft Application for the Azure Bot Service. | `bool` | `false` | no |
 | <a name="input_create_bot"></a> [create\_bot](#input\_create\_bot) | Set it to false to not create bot | `bool` | `true` | no |

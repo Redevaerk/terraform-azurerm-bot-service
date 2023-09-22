@@ -82,6 +82,18 @@ variable "tags" {
   default     = {}
 }
 
+variable "app_insights_application_id" {
+  description = "The resource ID of the Application Insights instance to associate with this Azure Bot Service."
+  type        = string
+  default     = null
+}
+
+variable "app_insights_key" {
+  description = "The Application Insights API Key to associate with this Azure Bot Service."
+  type        = string
+  default     = null
+}
+
 ###########
 # Microsoft Application
 ###########

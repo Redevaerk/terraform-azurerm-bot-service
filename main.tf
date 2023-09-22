@@ -5,21 +5,22 @@ locals {
 }
 
 resource "azurerm_bot_service_azure_bot" "this" {
-  count                      = var.create_bot ? 1 : 0
-  name                       = var.name
-  resource_group_name        = var.resource_group_name
-  location                   = var.location
-  microsoft_app_type         = var.microsoft_app_type
-  microsoft_app_id           = local.microsoft_app_id
-  microsoft_app_tenant_id    = local.microsoft_app_tenant_id
-  sku                        = var.sku
-  endpoint                   = local.endpoint
-  streaming_endpoint_enabled = var.streaming_endpoint_enabled
-  tags                       = var.tags
+  count                                 = var.create_bot ? 1 : 0
+  name                                  = var.name
+  resource_group_name                   = var.resource_group_name
+  location                              = var.location
+  microsoft_app_type                    = var.microsoft_app_type
+  microsoft_app_id                      = local.microsoft_app_id
+  microsoft_app_tenant_id               = local.microsoft_app_tenant_id
+  sku                                   = var.sku
+  endpoint                              = local.endpoint
+  streaming_endpoint_enabled            = var.streaming_endpoint_enabled
+  developer_app_insights_application_id = var.app_insights_application_id
+  developer_app_insights_key            = var.app_insights_key
+  tags                                  = var.tags
 }
 
-#developer_app_insights_application_id
-#developer_app_insights_key
+
 
 ###########
 # Channels
