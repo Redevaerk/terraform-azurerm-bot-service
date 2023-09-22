@@ -1,5 +1,5 @@
 locals {
-  endpoint                = var.attach_default_path_to_endpoint ? "${trim(var.endpoint, "/")}/api/messages" : var.endpoint
+  endpoint                = var.create_bot ? (var.attach_default_path_to_endpoint ? "${trim(var.endpoint, "/")}/api/messages" : var.endpoint) : null
   microsoft_app_id        = var.create_app ? module.app[0].client_id : var.microsoft_app_id
   microsoft_app_tenant_id = var.create_app ? (var.microsoft_app_type == "SingleTenant" ? data.azuread_client_config.current[0].tenant_id : null) : var.microsoft_app_tenant_id
 }
@@ -21,9 +21,34 @@ resource "azurerm_bot_service_azure_bot" "this" {
 #developer_app_insights_application_id
 #developer_app_insights_key
 
-#microsoft_app_msi_id - (Optional) The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
-#luis_app_ids - (Optional) A list of LUIS App IDs to associate with this Azure Bot Service.
-##luis_key - (Optional) The LUIS key to associate with this Azure Bot Service.
+###########
+# Channels
+###########
+resource "azurerm_bot_channel_directline" "this" {
+  bot_name            = var.name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  dynamic "site" {
+    for_each = try(var.direct_line_sites[*], [])
+    content {
+      name                            = site.value.name
+      enabled                         = lookup(site.value, "enabled", true)
+      user_upload_enabled             = lookup(site.value, "user_upload_enabled", true)
+      endpoint_parameters_enabled     = lookup(site.value, "endpoint_parameters_enabled", false)
+      storage_enabled                 = lookup(site.value, "storage_enabled", true)
+      v1_allowed                      = lookup(site.value, "v1_allowed", true)
+      v3_allowed                      = lookup(site.value, "v3_allowed", true)
+      enhanced_authentication_enabled = lookup(site.value, "enhanced_authentication_enabled", false)
+      trusted_origins                 = lookup(site.value, "trusted_origins", [])
+    }
+  }
+
+  depends_on = [
+    azurerm_bot_service_azure_bot.this
+  ]
+}
+
 
 ###########
 # Microsoft Application

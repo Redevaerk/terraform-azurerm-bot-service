@@ -27,6 +27,7 @@ module "app" {
 - [Simple](https://github.com/redevaerk/terraform-azurerm-bot-service/tree/main/examples/simple) - This example will create simple Bot Service.
 - [Single Tenant](https://github.com/redevaerk/terraform-azurerm-bot-service/tree/main/examples/single-tenant-with-app) - This example will create single-tenant bot type and also creates the azure ad application.
 - [Multi Tenant](https://github.com/redevaerk/terraform-azurerm-bot-service/tree/main/examples/multi-tenant-with-app) - This example will create multi-tenant bot type and also creates the azure ad application.
+- [Channels](https://github.com/redevaerk/terraform-azurerm-bot-service/tree/main/examples/single-tenant-with-channels) - This example will create single-tenant bot type with several channels configured.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -54,6 +55,7 @@ module "app" {
 
 | Name | Type |
 |------|------|
+| [azurerm_bot_channel_directline.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bot_channel_directline) | resource |
 | [azurerm_bot_service_azure_bot.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bot_service_azure_bot) | resource |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 
@@ -64,7 +66,8 @@ module "app" {
 | <a name="input_attach_default_path_to_endpoint"></a> [attach\_default\_path\_to\_endpoint](#input\_attach\_default\_path\_to\_endpoint) | If true, the path /api/messages will be attached to the endpoint | `bool` | `true` | no |
 | <a name="input_create_app"></a> [create\_app](#input\_create\_app) | Create a new Microsoft Application for the Azure Bot Service. | `bool` | `false` | no |
 | <a name="input_create_bot"></a> [create\_bot](#input\_create\_bot) | Set it to false to not create bot | `bool` | `true` | no |
-| <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | The Azure Bot Service endpoint. | `string` | n/a | yes |
+| <a name="input_direct_line_sites"></a> [direct\_line\_sites](#input\_direct\_line\_sites) | A Direct Line site represents a client application that you want to connect to your bot. | <pre>list(object({<br>    name                            = string<br>    enabled                         = optional(bool)<br>    user_upload_enabled             = optional(bool)<br>    endpoint_parameters_enabled     = optional(bool)<br>    storage_enabled                 = optional(bool)<br>    v1_allowed                      = optional(bool)<br>    v3_allowed                      = optional(bool)<br>    enhanced_authentication_enabled = optional(bool)<br>    trusted_origins                 = optional(list(string))<br>  }))</pre> | <pre>[<br>  {<br>    "enabled": true,<br>    "endpoint_parameters_enabled": false,<br>    "enhanced_authentication_enabled": false,<br>    "name": "default",<br>    "storage_enabled": false,<br>    "trusted_origins": [],<br>    "user_upload_enabled": true,<br>    "v1_allowed": true,<br>    "v3_allowed": true<br>  }<br>]</pre> | no |
+| <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | The Azure Bot Service endpoint. | `string` | `null` | no |
 | <a name="input_location"></a> [location](#input\_location) | The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created. | `string` | `"global"` | no |
 | <a name="input_microsoft_app_id"></a> [microsoft\_app\_id](#input\_microsoft\_app\_id) | The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created. | `string` | `null` | no |
 | <a name="input_microsoft_app_tenant_id"></a> [microsoft\_app\_tenant\_id](#input\_microsoft\_app\_tenant\_id) | The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created. | `string` | `null` | no |
@@ -79,6 +82,8 @@ module "app" {
 
 | Name | Description |
 |------|-------------|
+| <a name="output_direct_line_channel_id"></a> [direct\_line\_channel\_id](#output\_direct\_line\_channel\_id) | The Bot Direct Line Channel ID. |
+| <a name="output_direct_line_sites"></a> [direct\_line\_sites](#output\_direct\_line\_sites) | The Direct Line Channel Sites. |
 | <a name="output_microsoft_app_id"></a> [microsoft\_app\_id](#output\_microsoft\_app\_id) | The Microsoft Application ID for the Azure Bot Service. |
 | <a name="output_microsoft_app_password"></a> [microsoft\_app\_password](#output\_microsoft\_app\_password) | The Microsoft Application Password. |
 | <a name="output_microsoft_app_type"></a> [microsoft\_app\_type](#output\_microsoft\_app\_type) | The Microsoft App Type for this Azure Bot Service. |

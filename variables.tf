@@ -39,6 +39,7 @@ variable "sku" {
 variable "endpoint" {
   description = "The Azure Bot Service endpoint."
   type        = string
+  default     = null
 }
 
 variable "attach_default_path_to_endpoint" {
@@ -88,4 +89,33 @@ variable "create_app" {
   description = "Create a new Microsoft Application for the Azure Bot Service."
   type        = bool
   default     = false
+}
+
+###########
+# Channels
+###########
+variable "direct_line_sites" {
+  description = "A Direct Line site represents a client application that you want to connect to your bot."
+  type = list(object({
+    name                            = string
+    enabled                         = optional(bool)
+    user_upload_enabled             = optional(bool)
+    endpoint_parameters_enabled     = optional(bool)
+    storage_enabled                 = optional(bool)
+    v1_allowed                      = optional(bool)
+    v3_allowed                      = optional(bool)
+    enhanced_authentication_enabled = optional(bool)
+    trusted_origins                 = optional(list(string))
+  }))
+  default = [{
+    name                            = "default"
+    enabled                         = true
+    user_upload_enabled             = true
+    endpoint_parameters_enabled     = false
+    storage_enabled                 = false
+    v1_allowed                      = true
+    v3_allowed                      = true
+    enhanced_authentication_enabled = false
+    trusted_origins                 = []
+  }]
 }

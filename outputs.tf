@@ -18,3 +18,17 @@ output "microsoft_app_password" {
   value       = var.create_app ? module.app[0].app_client_secret : null
   sensitive   = true
 }
+
+###########
+# Channel - Direct Line
+###########
+output "direct_line_channel_id" {
+  description = "The Bot Direct Line Channel ID."
+  value       = azurerm_bot_channel_directline.this.id
+}
+
+output "direct_line_sites" {
+  description = "The Direct Line Channel Sites."
+  value       = azurerm_bot_channel_directline.this.site
+  sensitive   = true
+}
