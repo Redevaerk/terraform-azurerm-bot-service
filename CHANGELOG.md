@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.2.1](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.2.0...v1.2.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* Dont configure channels when bot isn't created ([ce9b48c](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/ce9b48cb276fa37c64a9b95c39ffd9c6358e7e71))
+
 ## [1.2.0](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.1.0...v1.2.0) (2023-09-22)
 
 
