@@ -1,14 +1,17 @@
 locals {
-  endpoint = var.attach_default_path_to_endpoint ? "${trim(var.endpoint, "/")}/api/messages" : var.endpoint
+  endpoint                = var.attach_default_path_to_endpoint ? "${trim(var.endpoint, "/")}/api/messages" : var.endpoint
+  microsoft_app_id        = var.create_app ? module.app[0].client_id : var.microsoft_app_id
+  microsoft_app_tenant_id = var.create_app ? (var.microsoft_app_type == "SingleTenant" ? data.azuread_client_config.current[0].tenant_id : null) : var.microsoft_app_tenant_id
 }
 
 resource "azurerm_bot_service_azure_bot" "this" {
+  count                      = var.create_bot ? 1 : 0
   name                       = var.name
   resource_group_name        = var.resource_group_name
   location                   = var.location
   microsoft_app_type         = var.microsoft_app_type
-  microsoft_app_id           = var.create_app ? module.app[0].client_id : var.microsoft_app_id
-  microsoft_app_tenant_id    = var.create_app ? (var.microsoft_app_type == "SingleTenant" ? data.azuread_client_config.current[0].tenant_id : null) : var.microsoft_app_tenant_id
+  microsoft_app_id           = local.microsoft_app_id
+  microsoft_app_tenant_id    = local.microsoft_app_tenant_id
   sku                        = var.sku
   endpoint                   = local.endpoint
   streaming_endpoint_enabled = var.streaming_endpoint_enabled

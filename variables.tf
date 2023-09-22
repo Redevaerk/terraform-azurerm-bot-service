@@ -15,6 +15,12 @@ variable "location" {
 ###########
 # Bot
 ###########
+variable "create_bot" {
+  description = "Set it to false to not create bot"
+  type        = bool
+  default     = true
+}
+
 variable "name" {
   description = "The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created."
   type        = string

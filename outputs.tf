@@ -5,12 +5,12 @@ output "microsoft_app_type" {
 
 output "microsoft_app_id" {
   description = "The Microsoft Application ID for the Azure Bot Service."
-  value       = azurerm_bot_service_azure_bot.this.microsoft_app_id
+  value       = local.microsoft_app_id
 }
 
 output "microsoft_tenant_id" {
   description = "The Tenant ID of the Microsoft App for this Azure Bot Service."
-  value       = azurerm_bot_service_azure_bot.this.microsoft_app_tenant_id
+  value       = local.microsoft_app_tenant_id
 }
 
 output "microsoft_app_password" {

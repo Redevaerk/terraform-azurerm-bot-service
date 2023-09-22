@@ -63,6 +63,7 @@ module "app" {
 |------|-------------|------|---------|:--------:|
 | <a name="input_attach_default_path_to_endpoint"></a> [attach\_default\_path\_to\_endpoint](#input\_attach\_default\_path\_to\_endpoint) | If true, the path /api/messages will be attached to the endpoint | `bool` | `true` | no |
 | <a name="input_create_app"></a> [create\_app](#input\_create\_app) | Create a new Microsoft Application for the Azure Bot Service. | `bool` | `false` | no |
+| <a name="input_create_bot"></a> [create\_bot](#input\_create\_bot) | Set it to false to not create bot | `bool` | `true` | no |
 | <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | The Azure Bot Service endpoint. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created. | `string` | `"global"` | no |
 | <a name="input_microsoft_app_id"></a> [microsoft\_app\_id](#input\_microsoft\_app\_id) | The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created. | `string` | `null` | no |
