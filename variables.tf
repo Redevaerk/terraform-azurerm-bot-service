@@ -94,6 +94,17 @@ variable "app_insights_key" {
   default     = null
 }
 
+variable "display_name" {
+  description = "The name that the Azure Bot Service will be displayed as. This defaults to the value set for name if not specified."
+  type        = string
+  default     = null
+}
+
+variable "local_authentication_enabled" {
+  description = "Is local authentication enabled? Defaults to true."
+  type        = bool
+  default     = true
+}
 ###########
 # Microsoft Application
 ###########
@@ -119,6 +130,7 @@ variable "private_endpoints" {
   }))
   default = {}
 }
+
 ###########
 # Luis
 ###########
@@ -134,6 +146,7 @@ variable "luis_key" {
   default     = null
   sensitive   = true
 }
+
 ###########
 # Channels
 ###########

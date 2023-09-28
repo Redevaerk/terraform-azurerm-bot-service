@@ -12,6 +12,7 @@ locals {
 resource "azurerm_bot_service_azure_bot" "this" {
   count                                 = var.create_bot ? 1 : 0
   name                                  = var.name
+  display_name                          = var.display_name
   resource_group_name                   = var.resource_group_name
   location                              = var.location
   microsoft_app_type                    = var.microsoft_app_type
@@ -24,6 +25,7 @@ resource "azurerm_bot_service_azure_bot" "this" {
   developer_app_insights_key            = var.app_insights_key
   luis_app_ids                          = var.luis_app_ids
   luis_key                              = var.luis_key
+  local_authentication_enabled          = var.local_authentication_enabled
   tags                                  = var.tags
 }
 
