@@ -119,7 +119,21 @@ variable "private_endpoints" {
   }))
   default = {}
 }
+###########
+# Luis
+###########
+variable "luis_app_ids" {
+  description = "A list of LUIS App IDs to associate with this Azure Bot Service."
+  type        = list(string)
+  default     = []
+}
 
+variable "luis_key" {
+  description = "The LUIS key to associate with this Azure Bot Service."
+  type        = string
+  default     = null
+  sensitive   = true
+}
 ###########
 # Channels
 ###########

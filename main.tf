@@ -22,6 +22,8 @@ resource "azurerm_bot_service_azure_bot" "this" {
   streaming_endpoint_enabled            = var.streaming_endpoint_enabled
   developer_app_insights_application_id = var.app_insights_application_id
   developer_app_insights_key            = var.app_insights_key
+  luis_app_ids                          = var.luis_app_ids
+  luis_key                              = var.luis_key
   tags                                  = var.tags
 }
 
