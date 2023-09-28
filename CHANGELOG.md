@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.2.1...v1.3.0) (2023-09-28)
+
+
+### Features
+
+* add support for display name and local authentication parameters ([23b51db](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/23b51db291637c9ae2058bcf57dc2f5ba8567300))
+* add support for luis applications ([6ddbc64](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/6ddbc6409e4e148e7fe404b8c83a239595012c58))
+* add support for private endpoints ([3df7cb0](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/3df7cb068716b75fc51d7623ef24e9de3476a96e))
+
 ### [1.2.1](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.2.0...v1.2.1) (2023-09-22)
 
 
