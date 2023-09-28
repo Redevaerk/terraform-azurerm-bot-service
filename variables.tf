@@ -104,6 +104,23 @@ variable "create_app" {
 }
 
 ###########
+# Private Endpoints
+###########
+variable "private_endpoints" {
+  description = "Private Endpoints configuration to deploy"
+  type = map(object({
+    vnet_id                           = string
+    subnet_id                         = string
+    subresource                       = optional(string, "Bot")
+    use_existing_private_dns_zone     = optional(bool, false)
+    private_dns_zone_ids              = optional(list(string), [])
+    ip_address                        = optional(string, null)
+    create_application_security_group = optional(bool, false)
+  }))
+  default = {}
+}
+
+###########
 # Channels
 ###########
 variable "direct_line_sites" {

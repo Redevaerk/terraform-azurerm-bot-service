@@ -37,3 +37,22 @@ output "web_chat_channel_id" {
   description = "The Web Chat Channel ID."
   value       = var.create_bot ? azurerm_bot_channel_web_chat.this[0].id : null
 }
+
+###########
+# Private Endpoints
+###########
+output "private_endpoints" {
+  description = "Private Endpoints."
+  value       = var.create_bot ? module.private_endpoint[*] : null
+}
+#
+#output "private_endpoint_ip_address" {
+#  description = "The Private Endpoint IP Address."
+#  value       = var.create_bot && var.vnet_integration_enabled ? module.private_endpoint[0].private_endpoint_ip_address : null
+#}
+#
+#output "application_security_group_id" {
+#  description = "The Application Security Group ID."
+#  value       = var.create_bot && var.vnet_integration_enabled && var.create_application_security_group ? azurerm_application_security_group.this[0].id : null
+#}
+#
