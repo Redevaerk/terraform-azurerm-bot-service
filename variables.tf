@@ -105,6 +105,12 @@ variable "local_authentication_enabled" {
   type        = bool
   default     = true
 }
+
+variable "icon_url" {
+  description = "The Icon Url of the Azure Bot Service."
+  type        = string
+  default     = null
+}
 ###########
 # Microsoft Application
 ###########

@@ -37,14 +37,14 @@ module "app" {
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.3 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~>2.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.74 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.75 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~>2.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.74 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.75 |
 
 ## Modules
 
@@ -76,6 +76,7 @@ module "app" {
 | <a name="input_direct_line_sites"></a> [direct\_line\_sites](#input\_direct\_line\_sites) | A Direct Line site represents a client application that you want to connect to your bot. | <pre>list(object({<br>    name                            = string<br>    enabled                         = optional(bool)<br>    user_upload_enabled             = optional(bool)<br>    endpoint_parameters_enabled     = optional(bool)<br>    storage_enabled                 = optional(bool)<br>    v1_allowed                      = optional(bool)<br>    v3_allowed                      = optional(bool)<br>    enhanced_authentication_enabled = optional(bool)<br>    trusted_origins                 = optional(list(string))<br>  }))</pre> | <pre>[<br>  {<br>    "enabled": true,<br>    "endpoint_parameters_enabled": false,<br>    "enhanced_authentication_enabled": false,<br>    "name": "default",<br>    "storage_enabled": false,<br>    "trusted_origins": [],<br>    "user_upload_enabled": true,<br>    "v1_allowed": true,<br>    "v3_allowed": true<br>  }<br>]</pre> | no |
 | <a name="input_display_name"></a> [display\_name](#input\_display\_name) | The name that the Azure Bot Service will be displayed as. This defaults to the value set for name if not specified. | `string` | `null` | no |
 | <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | The Azure Bot Service endpoint. | `string` | `null` | no |
+| <a name="input_icon_url"></a> [icon\_url](#input\_icon\_url) | The Icon Url of the Azure Bot Service. | `string` | `null` | no |
 | <a name="input_local_authentication_enabled"></a> [local\_authentication\_enabled](#input\_local\_authentication\_enabled) | Is local authentication enabled? Defaults to true. | `bool` | `true` | no |
 | <a name="input_location"></a> [location](#input\_location) | The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created. | `string` | `"global"` | no |
 | <a name="input_luis_app_ids"></a> [luis\_app\_ids](#input\_luis\_app\_ids) | A list of LUIS App IDs to associate with this Azure Bot Service. | `list(string)` | `[]` | no |

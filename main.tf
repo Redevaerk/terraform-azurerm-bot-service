@@ -26,6 +26,7 @@ resource "azurerm_bot_service_azure_bot" "this" {
   luis_app_ids                          = var.luis_app_ids
   luis_key                              = var.luis_key
   local_authentication_enabled          = var.local_authentication_enabled
+  icon_url                              = var.icon_url
   tags                                  = var.tags
 }
 
