@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.3.0...v1.4.0) (2023-10-02)
+
+
+### Features
+
+* add support for icon_url attribute ([fe70fba](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/fe70fbaff70c0ac363b88f007cacdeb8ee732359))
+
+
+### Bug Fixes
+
+* Error When Tags are empty in private endpoints module ([82d5556](https://github.com/Redevaerk/terraform-azurerm-bot-service/commit/82d5556bb194add0f2b969bbce18cefacbbd3dea))
+
 ## [1.3.0](https://github.com/Redevaerk/terraform-azurerm-bot-service/compare/v1.2.1...v1.3.0) (2023-09-28)
 
 
