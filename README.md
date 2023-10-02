@@ -51,7 +51,7 @@ module "app" {
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app"></a> [app](#module\_app) | Redevaerk/application/azuread | 1.1.0 |
-| <a name="module_private_endpoint"></a> [private\_endpoint](#module\_private\_endpoint) | claranet/private-endpoint/azurerm | 7.0.1 |
+| <a name="module_private_endpoint"></a> [private\_endpoint](#module\_private\_endpoint) | claranet/private-endpoint/azurerm | 7.0.2 |
 
 ## Resources
 

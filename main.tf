@@ -36,7 +36,7 @@ resource "azurerm_bot_service_azure_bot" "this" {
 module "private_endpoint" {
   for_each                               = var.create_bot ? var.private_endpoints : {}
   source                                 = "claranet/private-endpoint/azurerm"
-  version                                = "7.0.1"
+  version                                = "7.0.2"
   location                               = var.location
   resource_group_name                    = var.resource_group_name
   custom_private_endpoint_name           = each.key
